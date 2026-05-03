@@ -22,7 +22,7 @@ class Login extends Component
             session()->regenerate();
             return redirect()->intended('/home');
         } else {
-            $this->addError('email', 'The provided credentials do not match our records.');
+            $this->addError('email', __('auth.failed'));
         }
     }
 
