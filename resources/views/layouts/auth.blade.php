@@ -2,11 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'SPP | login' }}</title>
+    <title>SPP | @yield('title')</title>
+
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/logo/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo/favicon.png')}}">
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link
@@ -21,9 +20,34 @@
 
 </head>
 
-<body style="background-color: #0F172A;">
+<body style="background-color:#0f172a">
 
-    @yield('content')
+    <div class="container-fluid">
+        <div class="row min-vh-100">
+            {{-- LEFT SIDE --}}
+            <div class="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-center text-white">
+
+                <div class="text-center px-5">
+                    <img src="{{ asset('assets/img/logo/ZeroOne.ico') }}" class="img-fluid mb-4"
+                        style="max-height:120px; filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.2));">
+
+                    <h2 class="fw-bold">Zero One</h2>
+                    <p class="opacity-75">
+                        jasa pembuatan website dan aplikasi & Penyedia layanan berbagai aplikasi digital.
+                    </p>
+                </div>
+
+            </div>
+
+            {{-- RIGHT SIDE --}}
+            <div class="col-md-6 d-flex align-items-center justify-content-center bg-light">
+
+                @yield('content')
+
+            </div>
+        </div>
+
+    </div>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">

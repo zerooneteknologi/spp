@@ -20,7 +20,7 @@ class Login extends Component
 
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']], $this->remember)) {
             session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/home');
         } else {
             $this->addError('email', 'The provided credentials do not match our records.');
         }

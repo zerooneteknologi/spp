@@ -2,6 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
+
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/logo/apple-icon.png')}}">
+<link rel="icon" type="image/png" href="{{ asset('assets/img/logo/favicon.png')}}">
+
 <!-- Google Fonts -->
 <link href="https://fonts.gstatic.com" rel="preconnect">
 <link
