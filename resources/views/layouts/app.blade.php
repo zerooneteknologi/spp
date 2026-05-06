@@ -23,6 +23,9 @@
 
         <!-- Footer -->
         @include('partials.footer')
+    </div>
+
+    @include('partials.scripts')
 </body>
 
 </html>

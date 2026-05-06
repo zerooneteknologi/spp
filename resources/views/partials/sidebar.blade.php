@@ -11,6 +11,10 @@
             <a wire:navigate class="nav-link {{ request()->routeIs('dashboard') ? 'active': ''}}"
                 href="{{ route('dashboard') }}"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
         </li>
+        <li class="nav-item">
+            <a wire:navigate class="nav-link {{ request()->routeIs('schools.*') ? 'active': ''}}"
+                href="{{ route('schools.index') }}"><i class="bi bi-building me-2"></i>Profil Sekolah</a>
+        </li>
     </ul>
     <ul class="nav flex-column px-2">
         <li class="nav-item">

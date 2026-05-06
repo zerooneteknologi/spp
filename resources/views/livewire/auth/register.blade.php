@@ -5,11 +5,23 @@
 
     <form wire:submit.prevent="register" x-data="{ show:false, showConfirm:false }">
 
+        {{-- SCHOOL NAME --}}
+        <div class="mb-3">
+            <label class="form-label small fw-semibold" style="color: #8E54A2;">Sekolah</label>
+            <input type="text" autofocus wire:model.defer="school_name" class="form-control rounded-5 @error('school_name') is-invalid @enderror"
+                placeholder="Nama sekolah" maxlength="255">
+
+            @error('school_name')
+                <span class="invalid-feedback d-block">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
         {{-- NAME --}}
         <div class="mb-3">
             <label class="form-label small fw-semibold" style="color: #8E54A2;">Nama</label>
-            <input type="text" wire:model.defer="name" value="{{ old('name') }}" autocomplete="name" autofocus
-                class="form-control rounded-5 @error('name') is-invalid @enderror" placeholder="Masukkan nama">
+            <input type="text" wire:model.defer="name" value="{{ old('name') }}" autocomplete="name" class="form-control rounded-5 @error('name') is-invalid @enderror" placeholder="Masukkan nama">
 
             @error('name')
             <span class="invalid-feedback d-block">

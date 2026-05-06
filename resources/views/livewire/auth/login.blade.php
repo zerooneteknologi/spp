@@ -41,8 +41,8 @@
 
         <div class="col-12 d-flex justify-content-between align-items-center mt-2">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                <label class="form-check-label small text-muted" for="remember">Ingat saya</label>
+                <input wire:model="remember" class="form-check-input" type="checkbox" name="remember" id="remember">
+                    <label class="form-check-label small text-muted" for="remember">Ingat saya</label>
             </div>
             <a wire:navigate href="{{ route('password.request') }}" class="small text-decoration-none"
                 style="color: #3BA9D6;">Lupa

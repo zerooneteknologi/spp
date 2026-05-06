@@ -8,6 +8,9 @@ class Dashboard extends Component
 {
     public function render()
     {
-        return view('livewire.admin.dashboard');
+        $school = auth()->user()?->school;
+        $profileIncomplete = $school && (empty($school->phone) || empty($school->address));
+
+        return view('livewire.admin.dashboard', compact('school', 'profileIncomplete'));
     }
 }

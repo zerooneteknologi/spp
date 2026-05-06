@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\admin\School\School;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +19,30 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            SchoolSeeder::class,
         ]);
+
+        $schoolId = School::query()->value('id');
+
+        $user = User::query()->firstOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'Test User',
+                'password' => Hash::make('password'),
+            ]
+        );
+
+        if (!$schoolId) {
+            $school = School::query()->create([
+                'name' => 'Sekolah Demo',
+                'email' => $user->email,
+                'status' => 'active',
+            ]);
+            $schoolId = $school->id;
+        }
+
+        $user->forceFill(['name' => 'Test User'])->save();
+        $user->forceFill(['school_id' => $schoolId])->save();
     }
 }
