@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin\School\School;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -12,7 +13,7 @@ class SchoolController extends Controller
 {
     public function index(): RedirectResponse
     {
-        $schoolId = auth()->user()?->school_id;
+        $schoolId = Auth::user()?->school_id;
 
         if (!$schoolId) {
             abort(404);
@@ -69,7 +70,7 @@ class SchoolController extends Controller
 
     private function authorizeSchool(School $school): void
     {
-        if ((int) auth()->user()->school_id !== (int) $school->id) {
+        if ((int) Auth::user()->school_id !== (int) $school->id) {
             abort(403);
         }
     }
