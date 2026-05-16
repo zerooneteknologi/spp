@@ -19,6 +19,10 @@
             <a wire:navigate class="nav-link {{ request()->routeIs('academic-years.*') ? 'active': ''}}"
                 href="{{ route('academic-years.index') }}"><i class="bi bi-calendar3 me-2"></i>Tahun Ajaran</a>
         </li>
+        <li class="nav-item">
+            <a wire:navigate class="nav-link {{ request()->routeIs('dsp-plans.*') ? 'active': ''}}"
+                href="{{ route('dsp-plans.index') }}"><i class="bi bi-cash-stack me-2"></i>Rencana DSP</a>
+        </li>
     </ul>
     <ul class="nav flex-column px-2">
         <li class="nav-item">

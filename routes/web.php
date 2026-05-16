@@ -18,4 +18,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::resource('schools', App\Http\Controllers\SchoolController::class);
     Route::resource('academic-years', App\Http\Controllers\AcademicYearController::class);
+    Route::resource('dsp-plans', App\Http\Controllers\DspPlanController::class);
 });
