@@ -33,6 +33,11 @@ class School extends Model
         return $this->hasMany(\App\Models\User::class);
     }
 
+    public function academicYears(): HasMany
+    {
+        return $this->hasMany(\App\Models\admin\AcademicYear\AcademicYear::class);
+    }
+
     protected static function newFactory()
     {
         return SchoolFactory::new();

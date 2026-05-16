@@ -1,0 +1,58 @@
+<div class="container-fluid mt-4">
+  @include('partials.flash')
+
+  <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Tahun Ajaran</li>
+    </ol>
+  </nav>
+
+  <div class="card border-0 shadow-sm">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+      <h1 class="h5 mb-0 fw-bold">Daftar Tahun Ajaran</h1>
+      <a href="{{ route('academic-years.create') }}" class="btn btn-primary btn-sm" wire:navigate>
+        Tambah Baru
+      </a>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th scope="col" class="ps-4">Nama</th>
+              <th scope="col">Tahun Mulai</th>
+              <th scope="col">Tahun Selesai</th>
+              <th scope="col">Status</th>
+              <th scope="col" class="text-end pe-4">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            @forelse ($academicYears as $year)
+            <tr>
+              <td class="ps-4 fw-medium">{{ $year->name }}</td>
+              <td>{{ $year->start_year }}</td>
+              <td>{{ $year->end_year }}</td>
+              <td>
+                @if($year->is_active)
+                  <span class="badge bg-success bg-opacity-10 text-success px-2 py-1">Aktif</span>
+                @else
+                  <span class="badge bg-secondary bg-opacity-10 text-secondary px-2 py-1">Tidak Aktif</span>
+                @endif
+              </td>
+              <td class="text-end pe-4">
+                <a href="{{ route('academic-years.edit', $year->id) }}" class="btn btn-sm btn-outline-primary" wire:navigate>Edit</a>
+                <button type="button" class="btn btn-sm btn-outline-danger ms-1" wire:click="delete({{ $year->id }})" wire:confirm="Apakah Anda yakin ingin menghapus tahun ajaran ini?">Hapus</button>
+              </td>
+            </tr>
+            @empty
+            <tr>
+              <td colspan="5" class="text-center py-4 text-muted">Belum ada data tahun ajaran.</td>
+            </tr>
+            @endforelse
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

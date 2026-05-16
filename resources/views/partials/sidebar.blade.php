@@ -15,6 +15,10 @@
             <a wire:navigate class="nav-link {{ request()->routeIs('schools.*') ? 'active': ''}}"
                 href="{{ route('schools.index') }}"><i class="bi bi-building me-2"></i>Profil Sekolah</a>
         </li>
+        <li class="nav-item">
+            <a wire:navigate class="nav-link {{ request()->routeIs('academic-years.*') ? 'active': ''}}"
+                href="{{ route('academic-years.index') }}"><i class="bi bi-calendar3 me-2"></i>Tahun Ajaran</a>
+        </li>
     </ul>
     <ul class="nav flex-column px-2">
         <li class="nav-item">
