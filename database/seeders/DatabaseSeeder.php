@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\admin\School\School;
-use App\Models\admin\AcademicYear\AcademicYear;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SchoolSeeder::class,
             AcademicYearSeeder::class,
+            ClassroomSeeder::class,
         ]);
 
         $schoolId = School::query()->value('id');

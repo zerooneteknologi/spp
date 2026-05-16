@@ -1,13 +1,14 @@
 :root {
   /* Identitas Utama */
   --nav-height: 70px;
-  --primary-color: #0f172a; /* Deep Navy */
-  --secendary-color: #3ba9d6; /* Bright Blue */
-  --primary-gradient: linear-gradient(
-    135deg,
-    #8e54a2,
-    #3ba9d6
-  ); /* Purple to Blue */
+  --primary-color: #0f172a;
+  /* Deep Navy */
+  --secendary-color: #3ba9d6;
+  /* Bright Blue */
+  --primary-gradient: linear-gradient(135deg,
+      #8e54a2,
+      #3ba9d6);
+  /* Purple to Blue */
 
   /* UI Colors */
   --background-light: #f4f6fb;
@@ -35,7 +36,8 @@ body {
 
 /* --- SIDEBAR CUSTOM --- */
 .sidebar {
-  background-color: var(--primary-color); /* Menggunakan Deep Navy solid */
+  background-color: var(--primary-color);
+  /* Menggunakan Deep Navy solid */
   color: var(--white);
   width: var(--sidebar-width);
   flex-shrink: 0;
@@ -51,11 +53,13 @@ body {
 
 /* Memperbaiki Logo agar Tetap Jelas dengan Branding Identitas */
 .sidebar .logo {
-  height: var(--nav-height); /* Paksa tinggi agar sama dengan navbar */
+  height: var(--nav-height);
+  /* Paksa tinggi agar sama dengan navbar */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem; /* Gunakan padding horizontal saja agar sejajar vertikal */
+  padding: 0 1rem;
+  /* Gunakan padding horizontal saja agar sejajar vertikal */
   margin-bottom: 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   background-color: var(--primary-color);
@@ -111,10 +115,12 @@ body {
 }
 
 .navbar {
-  height: var(--nav-height); /* Pastikan navbar memiliki tinggi yang sama */
+  height: var(--nav-height);
+  /* Pastikan navbar memiliki tinggi yang sama */
   background: var(--white);
   border-bottom: 1px solid #e0e6f5;
-  padding: 0 1.5rem; /* Padding atas-bawah 0, biarkan height yang mengatur */
+  padding: 0 1.5rem;
+  /* Padding atas-bawah 0, biarkan height yang mengatur */
   position: sticky;
   top: 0;
   z-index: 50;
@@ -136,6 +142,7 @@ body {
   background-color: var(--secendary-color);
   color: var(--white);
 }
+
 .navbar h4 {
   color: var(--primary-color);
   font-weight: 600;
@@ -145,8 +152,10 @@ body {
 [x-cloak] {
   display: none !important;
 }
+
 .nav-menu {
-  display: block; /* Biarkan Alpine.js yang mengatur show/hide */
+  display: block;
+  /* Biarkan Alpine.js yang mengatur show/hide */
   border: none !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
   min-width: 200px;
@@ -164,7 +173,8 @@ body {
 .nav-menu .dropdown-item:hover {
   background-color: var(--secendary-color);
   color: var(--white) !important;
-  padding-left: 1.25rem; /* Efek geser sedikit saat hover */
+  padding-left: 1.25rem;
+  /* Efek geser sedikit saat hover */
 }
 
 .user-profile-link span {
@@ -178,6 +188,7 @@ nav .breadcrumb {
   padding: 0;
   margin-bottom: 1rem;
 }
+
 nav .breadcrumb .breadcrumb-item a {
   color: var(--secendary-color) !important;
   text-decoration: none;
@@ -187,6 +198,7 @@ nav .breadcrumb .breadcrumb-item a:hover {
   color: var(--primary-gradient) !important;
   text-decoration: underline;
 }
+
 nav .breadcrumb .breadcrumb-item.active {
   color: var(--primary-color) !important;
   font-weight: 600;
@@ -290,6 +302,7 @@ nav .breadcrumb .breadcrumb-item.active {
 .hide {
   margin-left: calc(-1 * var(--sidebar-width));
 }
+
 .full {
   margin-left: 0;
 }
@@ -302,22 +315,92 @@ nav .breadcrumb .breadcrumb-item.active {
   z-index: 1049;
   display: none;
 }
+
 .overlay.show {
   display: block;
+}
+
+/* Custom Table Styling */
+.zo-table-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background-color: #f8fafc;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  border-bottom: 1px solid #e0e6f5;
+  padding: 15px;
+}
+
+.table tbody td {
+  padding: 15px;
+  vertical-align: middle;
+  color: var(--text-main);
+}
+
+/* Badge untuk Jurusan atau Tingkat */
+.badge-prodi {
+  background: rgba(59, 169, 214, 0.1);
+  color: var(--primary-blue);
+  border: 1px solid rgba(59, 169, 214, 0.2);
+  font-weight: 600;
+}
+
+/* Custom Action Buttons */
+.btn-action {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.btn-edit {
+  background: #eef2ff;
+  color: #4f46e5;
+  border: none;
+}
+
+.btn-delete {
+  background: #fff1f2;
+  color: #e11d48;
+  border: none;
+}
+
+.btn-edit:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #e11d48;
+  color: white;
 }
 
 @media (max-width: 768px) {
   .sidebar {
     margin-left: calc(-1 * var(--sidebar-width));
   }
+
   .sidebar.show {
     margin-left: 0;
   }
+
   .main-content {
     margin-left: 0;
   }
+
   .nav-menu {
-    right: -10px !important; /* Beri sedikit ruang */
+    right: -10px !important;
+    /* Beri sedikit ruang */
     width: 180px;
   }
 }
